@@ -1,0 +1,39 @@
+Info:
+  Server: Main Server
+  Identifier: MXN
+  UUIDAsId: false
+  Icon: PAPER
+  Major_Single: Peso
+  Major_Plural: Pesos
+  Minor_Single: Centavo
+  Minor_Plural: Centavos
+  Symbol: null
+  UUID: 6db32eef-cdc9-40bc-8800-725ce96415ee
+Options:
+  MultiRegion:
+    Regions:
+      world:
+        Enabled: true
+        Default: true
+  Global:
+    Enabled: true
+    Default: true
+  Disabled: false
+  Sync: true
+  MaxBalance: '900000000000000000000000000000000000000000000'
+  MinBalance: '0.00'
+  Balance: '0.0'
+  Decimal: .
+  DecimalPlaces: 2
+  Type: virtual
+  Minor_Weight: 100
+Formatting:
+  Format: <symbol><major.amount><decimal><minor.amount>
+  Prefixes: kMGTPEZYXWVUN₮
+  Major_Separate: true
+  Major_Separator: ','
+  Balance: true
+Note:
+  Notable: false
+Converting:
+  Example: 2.0

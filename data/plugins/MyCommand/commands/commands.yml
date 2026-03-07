@@ -1,0 +1,73 @@
+gamemode_alias:
+  command: /gm
+  type: ALIAS
+  alias: /gamemode
+  permission-required: true
+
+clear_chat:
+  command: /clr
+  type: BROADCAST_TEXT
+  text:
+  - '%Repeat%100% '
+
+cmd:
+  command: /cmd
+  register: true
+  type: TEXT
+  text:
+  - "&a&l-- comandos --"
+  - "&e/sethome [nombre] - Registrar la posicion de tu casa"
+  - "&e/home [nombre] - Ir a la posicion de tu casa"
+  - "&d/tpa [jugador] - Pedir la teletransportación al jugador"
+  - "&d/tpaccept [jugador] - Aceptar la teletransportación"
+  - "&b/skill - Ver tu proceso de habilidades"
+  - "&9/bal - Ver tu balance"
+  - "&9/prot - Ver la tienda de protecciones"
+  permission-required: false
+
+colors:
+  command: /color
+  register: true
+  type: TEXT
+  text:
+  - "&a&l-- colores --"
+  - "&r&&r0: &0Black          &r&&rf: &fWhite"
+  - "&r&&r4: &4Dk Red        &r&&rc: &cLt red"
+  - "&r&&r6: &6Dk Yellow     &r&&re: &eLt Yellow"
+  - "&r&&r2: &2Dk Green     &r&&ra: &aLt Green"
+  - "&r&&r3: &3Dk Cyan      &r&&rb: &bLt Cyan"
+  - "&r&&r1: &1Dk Blue       &r&&r9: &9Lt Blue"
+  - "&r&&r5: &5Dk Magenta  &r&&rd: &dLt Magenta"
+  - "&r&&r8: &8Dk Gray      &r&&r7: &7Lt Gray"
+  - "&r&&rk: &kkkkk           &r&&rr: &rReset"
+  - "&r&&rm: &mStkThrgh&r     &r&&rn: &nUnderline"
+  - "&r&&ro: &oItalic          &r&&rl: &lBold"
+  permission-required: colors
+
+protecciones:
+  command: /prot
+  register: true
+  type: ICON_MENU
+  iconmenu_title: '&cTienda &4de &cProtecciones'
+  iconmenu_size: 27
+  iconmenu_commands:
+    # Formato: /ps_comprar [Material] [Precio]
+    - '11:YELLOW_GLAZED_TERRACOTTA:0:/ps_comprar YELLOW_GLAZED_TERRACOTTA 50:&a&lProtección 8x8:&eCosto 50;&7Radio de 8x8'
+    - '12:GREEN_GLAZED_TERRACOTTA:0:/ps_comprar GREEN_GLAZED_TERRACOTTA 100:&a&lProtección 16x16:&eCosto 100;&7Radio de 16x16'
+    - '13:LIGHT_BLUE_GLAZED_TERRACOTTA:0:/ps_comprar LIGHT_BLUE_GLAZED_TERRACOTTA 250:&a&lProtección 32x32:&eCosto 250;&7Radio de 32x32'
+    - '14:PURPLE_GLAZED_TERRACOTTA:0:/ps_comprar PURPLE_GLAZED_TERRACOTTA 500:&a&lProtección 64x64:&eCosto 500;&7Radio de 64x64'
+    - '15:BLACK_GLAZED_TERRACOTTA:0:/ps_comprar BLACK_GLAZED_TERRACOTTA 1000:&a&lProtección 128x128:&eCosto 1000;&7Radio de 128x128'
+    - '26:BARRIER:0:/close:&c&lCerrar Menú:&7Click para salir'
+  permission-required: false
+
+ps_comprar:
+  command: /ps_comprar
+  type: RUN_CONSOLE
+  runcmd:
+    - "$Script$%if%$money<$arg2"
+    - "$text$&c&lProtecciones &8» &7No tienes suficiente dinero ($$arg2)."
+    - "$Script$%else%"
+    - "/money remove $player $arg2"
+    - "/ps give $arg1 $player"
+    - "$text$&a&l¡Compra exitosa! &7Has recibido una protección de tipo &e$arg1&7."
+  permission-required: false

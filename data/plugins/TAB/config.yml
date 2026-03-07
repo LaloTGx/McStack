@@ -1,0 +1,344 @@
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Header-&-Footer
+header-footer:
+  enabled: true
+  designs:
+    world-test:
+      display-condition: "%world%=test"
+      header:
+        - "Test header in world 'test'"
+      footer:
+        - "Test footer in world 'test'"
+    default:
+      header:
+        - "<#FFFFFF>&m                                                </#FFFF00>"
+        - "&3&lServidor"
+        - "&r&7&l>> %animation:Welcome%&3 &l%player%&7&l! &7&l<<"
+        - "&r&7Online players: &f%online%"
+        - "&6Online staff: &e%staffonline%"
+        - ""
+      footer:
+        - "%animation:time%"
+        - "&2Ping: %ping%"
+        - "&7&l Used memory: %memory-used% MB / %memory-max% MB"
+        - ""
+        - "<#FFFFFF>&m                                                </#FFFF00>"
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Tablist-name-formatting
+tablist-name-formatting:
+  enabled: true
+  disable-condition: '%world%=disabledworld'
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Nametags
+scoreboard-teams:
+  enabled: true
+  enable-collision: true
+  invisible-nametags: false
+  # https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Sorting-players-in-tablist
+  sorting-types:
+    - "GROUPS:owner,admin,mod,helper,builder,vip,default"
+    - "PLACEHOLDER_A_TO_Z:%player%"
+  case-sensitive-sorting: true
+  can-see-friendly-invisibles: false
+  disable-condition: '%world%=disabledworld'
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Playerlist-Objective
+playerlist-objective:
+  enabled: true
+  value: "%ping%"
+  fancy-value: "&7Ping: %ping%"
+  title: "TAB" # Only visible on Bedrock Edition
+  render-type: INTEGER
+  disable-condition: '%world%=disabledworld'
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Belowname
+belowname-objective:
+  enabled: false
+  value: "%health%"
+  title: "&cHealth"
+  fancy-value: "&c%health%"
+  fancy-value-default: "NPC"
+  disable-condition: '%world%=disabledworld'
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Spectator-fix
+prevent-spectator-effect:
+  enabled: false
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Bossbar
+bossbar:
+  enabled: false
+  toggle-command: /bossbar
+  remember-toggle-choice: false
+  hidden-by-default: false
+  bars:
+    ServerInfo:
+      style: "PROGRESS" # for 1.9+: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
+      color: "%animation:barcolors%" # for 1.9+: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
+      progress: "100" # in %
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Scoreboard
+scoreboard:
+  enabled: true
+  toggle-command: /sb
+  remember-toggle-choice: false
+  hidden-by-default: false
+  use-numbers: false
+  static-number: 0
+  delay-on-join-milliseconds: 0
+  scoreboards:
+    scoreboard-1.20.3+:
+      title: "<#b58419>Servidor</#ffff45>"
+      display-condition: "%player-version-id%>=765;%bedrock%=false" # Only display it to players using 1.20.3+ AND NOT bedrock edition
+      lines:
+        #- "%animation:MyAnimation1%"
+        - "     &7📅 &f%date%"
+        - "       &5⏳ &d%time%"
+        - ""
+        - "&4👤 &c%player_name%||%condition:nick%"
+        - "%condition:ping%&8ms||&f%server_ram_used%&8MB"
+        - "%condition:color_world%||&b%online%"
+        #- "&1🌎 &9%world%||&b%online% &f%server_ram_used%&8MB"
+        - "&3⛏ &b%statistic_mine_block% &4💀 &c%statistic_deaths% &8🗡 &7%statistic_mob_kills%"
+        - "&6💰 &e$%vault_eco_balance%||&5🧪 &d%aureliumskills_mana%"
+        #- "&2🌳 &a%player_biome%"
+        #- "&2🧭 &7X: &a%player_x% &7Y: &a%player_y% &7Z: &a%player_z%"
+        - ""
+        - " ||&a/cmd"
+    scoreboard:
+      title: "<#FF0000>Servidor</#FF0000>"
+      lines:
+         #- "%animation:MyAnimation1%"
+        - "      &f%date%"
+        - "        &d%time%"
+        - ""
+        #- "&c%player_name%"
+        - "&c%player_name%||%condition:nick%"
+        - "%condition:ping%&8ms||&f%server_ram_used%&8MB"
+        - "&9%world%||&b%online%"
+        - "%condition:color_world%||&b%online% &f%server_ram_used%&8MB"
+        - "&3 BP &b%statistic_mine_block% &4M &c%statistic_deaths% &3K &b%statistic_mob_kills%"
+        - "&6M &e$%vault_eco_balance%||&3M &b%aureliumskills_mana%"
+        #- "&a%player_biome%"
+        #- "&7X: &a%player_x% &7Y: &a%player_y% &7Z: &a%player_z%"
+        - ""
+        - "&a/cmd"
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Layout
+layout:
+  enabled: false
+  direction: COLUMNS
+  default-skin: mineskin:37e93c8e12cd426cb28fce31969e0674
+  enable-remaining-players-text: true
+  remaining-players-text: '... and %s more'
+  empty-slot-ping-value: 1000
+  layouts:
+    default:
+      fixed-slots:
+        - '1|&3Website&f:'
+        - '2|&bmyserver.net'
+        - '3|&8&m                       '
+        - '4|&3Name&f:'
+        - '5|&b%player%'
+        - '7|&3Rank&f:'
+        - '8|Rank: %group%'
+        - '10|&3World&f:'
+        - '11|&b%world%'
+        - '13|&3Time&f:'
+        - '14|&b%time%'
+        - '21|&3Teamspeak&f:'
+        - '22|&bts.myserver.net'
+        - '23|&8&m                       '
+        - '41|&3Store&f:'
+        - '42|&bshop.myserver.net'
+        - '43|&8&m                       '
+      groups:
+        staff:
+          condition: permission:tab.staff
+          slots:
+            - 24-40
+        players:
+          slots:
+            - 44-80
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Ping-Spoof
+ping-spoof:
+  enabled: false
+  value: 0
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Global-playerlist
+global-playerlist:
+  enabled: false
+  display-others-as-spectators: false
+  display-vanished-players-as-spectators: true
+  isolate-unlisted-servers: false
+  update-latency: false
+  spy-servers:
+    - spyserver1
+    - spyserver2
+  server-groups:
+    lobbies:
+      - lobby1
+      - lobby2
+    group2:
+      - server1
+      - server2
+
+placeholders:
+  date-format: "dd MM yyyy"
+#  time-format: "[HH:mm:ss / h:mm a]"
+  time-format: "h:mm a"
+  time-offset: 0
+  register-tab-expansion: false
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Placeholder-output-replacements
+placeholder-output-replacements:
+  "%essentials_vanished%":
+    "yes": "&7| Vanished"
+    "no": ""
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Conditional-placeholders
+conditions:
+
+  color_world:
+    conditions:
+      - "%world%=world" # Nombre de tu mundo normal (cámbialo si se llama distinto)
+    true: "&1🌎 &9%world%"   # Azul si es el overworld
+    false: "%condition:color_nether%" # Si no es world, salta a la siguiente pregunta
+
+  color_nether:
+    conditions:
+      - "%world%=world_nether"
+    true: "&4🔥 &c%world%"   # Rojo si es el nether
+    false: "%condition:color_end%" # Si no es nether, salta a la última
+
+  color_end:
+    conditions:
+      - "%world%=world_the_end"
+    true: "&5🌙 &d%world%"   # Púrpura si es el end
+    false: "&f%world%"   # Blanco por si estás en cualquier otro mundo
+
+  ping:
+    conditions:
+    - "%ping%<500"
+    true: "&a%ping%" # Ping is < 50, display as green
+    false: "%condition:ping2%" # Ping is 50+, check another condition
+
+  ping2:
+    conditions:
+    - "%ping%<1000"
+    true: "&e%ping%" # Ping is < 100, display as yellow
+    false: "&c%ping%" # Ping is 100+, display as red
+
+  nick:
+    conditions:
+      - "%luckperms_primary_group_name%=Admin"
+    true: "&e👑 &cAdmin"
+    false: "%condition:nick2%"
+
+  nick2:
+    conditions:
+      - "%luckperms_primary_group_name%=Dev"
+    true: "&3💻 &bDev"
+    false: "%condition:nick3%"
+
+  nick3:
+    conditions:
+      - "%luckperms_primary_group_name%=default"
+    true: "&7User"
+    false: "&7User"
+
+placeholder-refresh-intervals:
+  default-refresh-interval: 500
+  "%server_uptime%": 1000
+  "%server_tps_1_colored%": 1000
+  "%server_unique_joins%": 5000
+  "%player_health%": 200
+  "%player_ping%": 1000
+  "%vault_prefix%": 1000
+  "%rel_factionsuuid_relation_color%": 1000
+
+# assigning groups by permission nodes instead of taking them from permission plugin
+assign-groups-by-permissions: false
+
+# if the option above is true, all groups are taken based on permissions and the one higher in this list is used as primary
+# Warning! This is not sorting list and has nothing to do with sorting players in tablist!
+primary-group-finding-list:
+  - Owner
+  - Admin
+  - Mod
+  - Helper
+  - default
+
+# Refresh interval (in milliseconds) of:
+# - Permission checks in conditions / sorting
+# - Group retrieving from permission plugin for sorting / per-group properties
+# - Prefix/suffix placeholders taking data from permission plugin
+permission-refresh-interval: 1000
+
+# Unlocks extra console messages
+debug: false
+
+# https://github.com/NEZNAMY/TAB/wiki/MySQL
+mysql:
+  enabled: false
+  host: 127.0.0.1
+  port: 3306
+  database: tab
+  username: user
+  password: password
+  useSSL: true
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Multi-server-support
+proxy-support:
+  enabled: true
+  # Supported types: PLUGIN, REDIS, RABBITMQ
+  type: PLUGIN
+  plugin:
+    # Compatible plugins: RedisBungee
+    # If enabled and compatible plugin is found, hook is enabled to work with proxied players
+    name: RedisBungee
+  redis:
+    url: 'redis://:password@localhost:6379/0'
+  rabbitmq:
+    exchange: 'plugin'
+    url: 'amqp://guest:guest@localhost:5672/%2F'
+
+components:
+  minimessage-support: true
+  disable-shadow-for-heads: true
+
+# Internal value, do not change this
+config-version: 2
+
+########################################################################
+# BUKKIT ONLY - THE FOLLOWING SECTION IS ONLY FOR BACKEND INSTALLATION #
+########################################################################
+
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Per-world-playerlist
+per-world-playerlist:
+  enabled: false
+  # players with tab.staff will always see all players
+  allow-bypass-permission: false
+  # players in these worlds will always see all players
+  ignore-effect-in-worlds:
+    - ignoredworld
+    - build
+  shared-playerlist-world-groups:
+    lobby:
+      - lobby1
+      - lobby2
+    minigames:
+      - paintball
+      - bedwars
+
+compensate-for-packetevents-bug: false
+
+#####################################################################
+# PROXY ONLY - THE FOLLOWING SECTION IS ONLY FOR PROXY INSTALLATION #
+#####################################################################
+
+# Take permissions and groups from backend server instead of proxy
+use-bukkit-permissions-manager: false
+
+# Sometimes server might be using offline uuids in tablist instead of online, such as disabling waterfall's tablist rewrite option
+# If you experience tablist formatting not working, toggle this option (set it to opposite value)
+# Only affects proxies with online mode enabled
+use-online-uuid-in-tablist: true
