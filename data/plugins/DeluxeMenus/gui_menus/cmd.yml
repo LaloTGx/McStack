@@ -1,0 +1,97 @@
+menu_title: '&2- Comandos del Servidor:'
+open_command:
+- cmd
+size: 54
+
+items:
+
+  home:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIzYWM5M2Q1ZTk5OTVkZTg0YWE5NWRlM2M4OWU0MDQyNTYwNjAzNGRkOGQ3NWNmZDcxOTYxNjA5YmQ1MjgxNSJ9fX0=
+    slot: 10
+    display_name: '&6Lista de casa'
+    lore:
+    - '&7Click para ver la lista de Hogares creados'
+    left_click_commands:
+    - '[close]'
+    - '[player] home'
+
+  tpaccept:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGVhYjQxZTNjYjg3NjllYmFkMmE4MjFkNTVjY2I4NWE0YTk0MGRkNWM2ZThiZjczOGIwYjEyMmY4NzkxZSJ9fX0=
+    slot: 13
+    display_name: '&aAceptar TPA'
+    lore:
+    - '&7Click para aceptar la última solicitud'
+    left_click_commands:
+    - '[player] tpaccept'
+
+  skill:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTJlYzlhOGE5MGQ5MGM3ODY1MWFmMmY5NjIwMTUxMTFmY2JmMTFhYzg3MzhmNTJiOGUyNGRhODYyYTM4NzFiYSJ9fX0=
+    slot: 14
+    display_name: '&3Habilidades (Skills)'
+    lore:
+    - '&7Ver tu progreso de niveles'
+    left_click_commands:
+    - '[player] skill'
+
+  balance:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWZkMTA4MzgzZGZhNWIwMmU4NjYzNTYwOTU0MTUyMGU0ZTE1ODk1MmQ2OGMxYzhmOGYyMDBlYzdlODg2NDJkIn19fQ==
+    slot: 15
+    display_name: '&9Bolsillo (Balance)'
+    lore:
+    - '&7Ver cuánto dinero tienes'
+    left_click_commands:
+    - '[close]'
+    - '[message] &d/bal'
+
+  protecciones:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTFiZTRiNWI1OTJmZWUyMWE2NWUwZjkwMzAzOGM1MzMzYmUzODgyMzRhNDM3MzFkNGFkZmU1ZDU3ZDM2NDRlNSJ9fX0=
+    slot: 16
+    display_name: '&bTienda de Protecciones'
+    lore:
+    - '&7Click para abrir la tienda'
+    left_click_commands:
+    - '[player] prot'
+
+  sethome:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjNkMDJjZGMwNzViYjFjYzVmNmZlM2M3NzExYWU0OTc3ZTM4YjkxMGQ1MGVkNjAyM2RmNzM5MTNlNWU3ZmNmZiJ9fX0=
+    slot: 11
+    display_name: '&eRegistrar Casa'
+    lore:
+    - '&7Click para preparar el comando /sethome'
+    left_click_commands:
+    - '[message] &d/sethome &aNombre del lugar'
+
+  tpa:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjFkZDRmZTRhNDI5YWJkNjY1ZGZkYjNlMjEzMjFkNmVmYTZhNmI1ZTdiOTU2ZGI5YzVkNTljOWVmYWIyNSJ9fX0=
+    slot: 12
+    display_name: '&dTeletransporte (TPA)'
+    lore:
+    - '&7Click para preparar el comando /tpa'
+    left_click_commands:
+    - '[message] &e/tpa &aNombre del usuario'
+
+  playerhead:
+    material: head-%player_name%
+    slot: 22
+    display_name: '%player_name%'
+    lore:
+    - '&dLvl. %player_level%'
+
+  github:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJjYTkxODVkN2E5MGYwN2VhYjM1MTBjYzFhZGJlYmQwNzViY2MyOTU4YWY5MjQ4NTAyMTUwYThjYjQyYTQ2MSJ9fX0=
+    slot: 52
+    display_name: '&6Repositorio en GitHub'
+    lore:
+    - '&7Click para obtener el enlace'
+    left_click_commands:
+    - '[close]'
+    - '[message] &aRepositorio:&b https://github.com/LaloTGx/McStack'
+
+  cerrar:
+    material: BARRIER
+    slot: 53
+    display_name: '&c&lCerrar Menú'
+    lore:
+    - '&7Click para volver al juego'
+    left_click_commands:
+    - '[close]'

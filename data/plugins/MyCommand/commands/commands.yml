@@ -1,29 +1,8 @@
-gamemode_alias:
-  command: /gm
-  type: ALIAS
-  alias: /gamemode
-  permission-required: true
-
 clear_chat:
   command: /clr
   type: BROADCAST_TEXT
   text:
   - '%Repeat%100% '
-
-cmd:
-  command: /cmd
-  register: true
-  type: TEXT
-  text:
-  - "&a&l-- comandos --"
-  - "&e/sethome [nombre] - Registrar la posicion de tu casa"
-  - "&e/home [nombre] - Ir a la posicion de tu casa"
-  - "&d/tpa [jugador] - Pedir la teletransportación al jugador"
-  - "&d/tpaccept [jugador] - Aceptar la teletransportación"
-  - "&b/skill - Ver tu proceso de habilidades"
-  - "&9/bal - Ver tu balance"
-  - "&9/prot - Ver la tienda de protecciones"
-  permission-required: false
 
 colors:
   command: /color
@@ -44,11 +23,11 @@ colors:
   - "&r&&ro: &oItalic          &r&&rl: &lBold"
   permission-required: colors
 
-protecciones:
+prot:
   command: /prot
   register: true
   type: ICON_MENU
-  iconmenu_title: '&cTienda &4de &cProtecciones'
+  iconmenu_title: '&4Tienda de Protecciones'
   iconmenu_size: 27
   iconmenu_commands:
     # Formato: /ps_comprar [Material] [Precio]
@@ -57,7 +36,7 @@ protecciones:
     - '13:LIGHT_BLUE_GLAZED_TERRACOTTA:0:/ps_comprar LIGHT_BLUE_GLAZED_TERRACOTTA 250:&a&lProtección 32x32:&eCosto 250;&7Radio de 32x32'
     - '14:PURPLE_GLAZED_TERRACOTTA:0:/ps_comprar PURPLE_GLAZED_TERRACOTTA 500:&a&lProtección 64x64:&eCosto 500;&7Radio de 64x64'
     - '15:BLACK_GLAZED_TERRACOTTA:0:/ps_comprar BLACK_GLAZED_TERRACOTTA 1000:&a&lProtección 128x128:&eCosto 1000;&7Radio de 128x128'
-    - '26:BARRIER:0:/close:&c&lCerrar Menú:&7Click para salir'
+    - '26:BARRIER:0:%close%:&c&lCerrar Menú:&7Click para salir'
   permission-required: false
 
 ps_comprar:
@@ -71,3 +50,22 @@ ps_comprar:
     - "/ps give $arg1 $player"
     - "$text$&a&l¡Compra exitosa! &7Has recibido una protección de tipo &e$arg1&7."
   permission-required: false
+
+#cmd:
+#  command: /cmd
+#  register: true
+#  type: ICON_MENU
+#  iconmenu_title: '&2- Comandos del Servidor:'
+#  iconmenu_size: 54
+#  iconmenu_commands:
+#    - 10:OAK_DOOR:0:/home:&6Ir a casa:&7Click para ir a tu home principal
+#    - 13:PAPER:0:/tpaccept:&aAceptar TPA:&7Click para aceptar la última solicitud
+#    - 14:IRON_SWORD:0:/skill:&3Habilidades (Skills):&7Ver tu progreso de niveles
+#    - 15:GOLD_INGOT:11:%openiconmenu%/balance:&9Bolsillo (Balance):&7Ver cuánto dinero tienes
+#    - 16:BEACON:11:%openiconmenu%/prot:&bTienda de Protecciones:&7Click para abrir la tienda
+#    - 11:CHEST:0:/ayuda_sethome:&eRegistrar Casa:&7Click para preparar el comando /sethome
+#    - 12:ENDER_PEARL:0:/ayuda_tpa:&dTeletransporte (TPA):&7Click para preparar el comando /tpa
+#    - 22:PLAYER_HEAD%$player:0::%player_name%:&dLvl. %player_level%
+#    - 52:PLAYER_HEAD%$HeadValue:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJjYTkxODVkN2E5MGYwN2VhYjM1MTBjYzFhZGJlYmQwNzViY2MyOTU4YWY5MjQ4NTAyMTUwYThjYjQyYTQ2MSJ9fX0:0:/home:&6Repositorio en GitHub:&5Click para ver la config
+#    - 53:BARRIER:0:%close%:&c&lCerrar Menú:&7Click para volver al juego
+#  permission-required: false
