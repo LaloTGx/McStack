@@ -1,0 +1,49 @@
+on right click on yellow glazed terracotta:
+    set {_regions::*} to regions at event-block
+    loop {_regions::*}:
+        if "%loop-value%" contains "ps":
+            if player is in owners of loop-value:
+                execute player command "mnprot"
+            else:
+                send "&cNo eres dueño de esta protección." to player
+            stop
+
+on right click on green glazed terracotta:
+    set {_regions::*} to regions at event-block
+    loop {_regions::*}:
+        if "%loop-value%" contains "ps":
+            if player is in owners of loop-value:
+                execute player command "mnprot"
+            else:
+                send "&cNo eres dueño de esta protección." to player
+            stop
+
+on right click on light blue glazed terracotta:
+    set {_regions::*} to regions at event-block
+    loop {_regions::*}:
+        if "%loop-value%" contains "ps":
+            if player is in owners of loop-value:
+                execute player command "mnprot"
+            else:
+                send "&cNo eres dueño de esta protección." to player
+            stop
+
+on right click on purple glazed terracotta:
+    set {_regions::*} to regions at event-block
+    loop {_regions::*}:
+        if "%loop-value%" contains "ps":
+            if player is in owners of loop-value:
+                execute player command "mnprot"
+            else:
+                send "&cNo eres dueño de esta protección." to player
+            stop
+
+on right click on black glazed terracotta:
+    set {_regions::*} to regions at event-block
+    loop {_regions::*}:
+        if "%loop-value%" contains "ps":
+            if player is in owners of loop-value:
+                execute player command "mnprot"
+            else:
+                send "&cNo eres dueño de esta protección." to player
+            stop

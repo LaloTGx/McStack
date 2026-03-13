@@ -74,19 +74,23 @@ placing_bypasses_wg_passthrough = true
     # Can use -g [group] before the flag to set group flags (ex. -g members pvp deny).
     # Can use PlaceholderAPI placeholders in string flags (ex. greeting, farewell).
     flags = [
-        #"build deny",
-        "block-break deny",
-        "block-place deny",
-        "interact deny",
         "pvp deny",
         "tnt deny",
-        #"greeting &lEntering &b&l%player%'s &f&lprotected area",
-        #"farewell &lLeaving &b&l%player%'s &f&lprotected area",
-        "greeting-action &2&lEntering &a&l%player%'s &2&lprotected area",
-        "farewell-action &2&lLeaving &a&l%player%'s &2&lprotected area",
+        "entry allow",
+
+        "block-break deny",
+        "block-place deny",
+        "use deny",
+        "chest-access deny",
+        "enderpearl deny",
+
+        "mob-spawning deny",
         "creeper-explosion deny",
         "wither-damage deny",
         "ghast-fireball deny",
+
+        "greeting-action &2&lEntering &a&l%player%'s &2&lprotected area",
+        "farewell-action &2&lLeaving &a&l%player%'s &2&lprotected area",
     ]
 
     # List all the flags that can be set by region owners.
@@ -94,16 +98,21 @@ placing_bypasses_wg_passthrough = true
     # "-g all pvp" - Prevents players setting the group to nonmembers, and being invulnerable to attacks.
     allowed_flags = [
         "-g all pvp",
-        "greeting",
-        "greeting-title",
-        "greeting-action",
-        "farewell",
-        "farewell-title",
-        "farewell-action",
+        "block-break",
+        "block-place",
+        "use",
+        "chest-access",
         "mob-spawning",
+        "enderpearl",
         "creeper-explosion",
         "wither-damage",
         "ghast-fireball",
+        "tnt",
+        "entry",
+        "farewell",
+        "greeting-title",
+        "farewell-title",
+        "farewell-action"
     ]
 
     # Which flags to hide from /ps info

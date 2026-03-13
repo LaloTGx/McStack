@@ -11,3 +11,7 @@ metas_list_page_size: 15
 gui_menus:
   cmd:
     file: cmd.yml
+  menuprot:
+    file: mnprot.yml
+  confprot:
+    file: cnprot.yml

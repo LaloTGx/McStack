@@ -11,10 +11,10 @@ header-footer:
     default:
       header:
         - "<#FFFFFF>&m                                                </#FFFF00>"
-        - "&3&lServidor"
+        - "&3&lInges del Atah"
         - "&r&7&l>> %animation:Welcome%&3 &l%player%&7&l! &7&l<<"
         - "&r&7Online players: &f%online%"
-        - "&6Online staff: &e%staffonline%"
+       # - "&6Online staff: &e%staffonline%"
         - ""
       footer:
         - "%animation:time%"
@@ -86,25 +86,25 @@ scoreboard:
   delay-on-join-milliseconds: 0
   scoreboards:
     scoreboard-1.20.3+:
-      title: "<#b58419>Servidor</#ffff45>"
+      title: "<#b58419>Inges del Atah</#ffff45>"
       display-condition: "%player-version-id%>=765;%bedrock%=false" # Only display it to players using 1.20.3+ AND NOT bedrock edition
       lines:
         #- "%animation:MyAnimation1%"
-        - "     &7📅 &f%date%"
-        - "       &5⏳ &d%time%"
+        - "   &7📅 &f%date%"
+        - "     &5⏳ &d%time%"
         - ""
         - "&4👤 &c%player_name%||%condition:nick%"
         - "%condition:ping%&8ms||&f%server_ram_used%&8MB"
         - "%condition:color_world%||&b%online%"
         #- "&1🌎 &9%world%||&b%online% &f%server_ram_used%&8MB"
-        - "&3⛏ &b%statistic_mine_block% &4💀 &c%statistic_deaths% &8🗡 &7%statistic_mob_kills%"
-        - "&6💰 &e$%vault_eco_balance%||&5🧪 &d%aureliumskills_mana%"
+        - "&8🗡 &7%statistic_mob_kills%||&4💀 &c%statistic_deaths%"
+        - "&3⛏ &b%statistic_mine_block%||&5🧪 &d%aureliumskills_mana%"
         #- "&2🌳 &a%player_biome%"
         #- "&2🧭 &7X: &a%player_x% &7Y: &a%player_y% &7Z: &a%player_z%"
         - ""
-        - " ||&a/cmd"
+        - "&6💰 &e$%vault_eco_balance%||&a/cmd"
     scoreboard:
-      title: "<#FF0000>Servidor</#FF0000>"
+      title: "<#FF0000>Inges del Atah</#FF0000>"
       lines:
          #- "%animation:MyAnimation1%"
         - "      &f%date%"
