@@ -1,9 +1,9 @@
 options:
     max_estamina: 100
-    gasto_correr: 4
-    gasto_caminar: 1
+    gasto_correr: 0.5
+    gasto_caminar: 0.1
     recuperacion: 10
-    delay_recuperacion: 15
+    delay_recuperacion: 3
 
 on join:
     if {estamina::%player's uuid%} is not set:
@@ -12,34 +12,40 @@ on join:
     set {inmovilizado::%player's uuid%} to false
     set {timer_descanso::%player's uuid%} to 0
 
-# 1. BLOQUEO Y DETECCIÓN DE CAMBIO DE POSICIÓN
+# 1. DETECCIÓN DE MOVIMIENTO Y BLOQUEO
 on player move:
-    # Si solo mueve la cámara (yaw/pitch), ignoramos el evento
-    if x-coordinate of player's location is x-coordinate of last event-location:
-        if z-coordinate of player's location is z-coordinate of last event-location:
-            stop
+    # --- FILTRO DE BLOQUE ---
+    # Comparamos si el bloque actual es igual al anterior para permitir mover la cámara
+    if block at event-location is block at past event-location:
+        stop
 
-    # Si llegó aquí, es porque cambió de posición X o Z (se movió físicamente)
     if {inmovilizado::%player's uuid%} is true:
         cancel event
         send action bar "&4&lCOLAPSO TOTAL - Debes esperar" to player
         stop
 
-    # Resetear timer solo si hay movimiento real
-    set {timer_descanso::%player's uuid%} to 0
-
+    # Gasto de energía al moverse
     if player is sprinting:
         remove {@gasto_correr} from {estamina::%player's uuid%}
     else:
         remove {@gasto_caminar} from {estamina::%player's uuid%}
 
-# 2. BUCLE DE LÓGICA (1 segundo)
+# 2. BUCLE DE LÓGICA
 every 1 second:
     loop all players:
         set {_u} to loop-player's uuid
         set {_p} to loop-player
 
-        # A. Control de Niveles
+        # --- Lógica de Detección de Quietud (Ignorando cámara) ---
+        # Comparamos solo la posición del bloque, no la locación exacta
+        set {_current_block} to block at {_p}
+        if {_current_block} is not {ultimo_bloque::%{_u}%}:
+            set {timer_descanso::%{_u}%} to 0
+            set {ultimo_bloque::%{_u}%} to {_current_block}
+        else:
+            add 1 to {timer_descanso::%{_u}%}
+
+        # --- A. Control de Niveles ---
         if {estamina::%{_u}%} <= 0:
             set {estamina::%{_u}%} to 0
             set {inmovilizado::%{_u}%} to true
@@ -50,21 +56,20 @@ every 1 second:
             if {_p} is sprinting:
                 make {_p} stop sprinting
 
-        # B. Lógica del Delay mejorada
-        # Si el jugador está quieto, sumamos al timer
-        add 1 to {timer_descanso::%{_u}%}
-
+        # --- B. Recuperación ---
         if {timer_descanso::%{_u}%} >= {@delay_recuperacion}:
             if {estamina::%{_u}%} < {@max_estamina}:
                 add {@recuperacion} to {estamina::%{_u}%}
 
-        # C. Desbloqueo al llegar al máximo
+        # --- C. Desbloqueo ---
         if {estamina::%{_u}%} >= 100:
             set {estamina::%{_u}%} to 100
-            set {agotado::%{_u}%} to false
-            set {inmovilizado::%{_u}%} to false
+            if {agotado::%{_u}%} is true:
+                set {agotado::%{_u}%} to false
+                set {inmovilizado::%{_u}%} to false
+                play sound "entity.experience_orb.pickup" with volume 0.5 to {_p}
 
-        # D. Interfaz Visual
+        # --- D. Interfaz ---
         set {_color} to "&a"
         if {agotado::%{_u}%} is true:
             set {_color} to "&e"
@@ -80,8 +85,8 @@ every 1 second:
                 set {_bar} to "%{_bar}%&7■"
 
         if {inmovilizado::%{_u}%} is true:
-            send action bar "&4&lINMÓVIL &8(&f%{timer_descanso::%{_u}%}%s/15s&8) &c%{estamina::%{_u}%}%" to {_p}
+            send action bar "&4&lINMÓVIL &8(&f%{timer_descanso::%{_u}%}%s/{@delay_recuperacion}s&8) &c%{estamina::%{_u}%}%" to {_p}
         else if {agotado::%{_u}%} is true:
-            send action bar "&e&lSIN ALIENTO &7[%{_bar}%&7] &6%{estamina::%{_u}%}%" to {_p}
+            send action bar "&e&lSIN ALIENTO %{_bar}% &6%{estamina::%{_u}%}%" to {_p}
         else:
-            send action bar "&fEnergía [%{_bar}%&f] &a%{estamina::%{_u}%}%" to {_p}
+            send action bar "&fEnergía %{_bar}% &a%{estamina::%{_u}%}%" to {_p}
