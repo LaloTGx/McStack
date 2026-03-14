@@ -1,0 +1,87 @@
+options:
+    max_estamina: 100
+    gasto_correr: 4
+    gasto_caminar: 1
+    recuperacion: 10
+    delay_recuperacion: 15
+
+on join:
+    if {estamina::%player's uuid%} is not set:
+        set {estamina::%player's uuid%} to {@max_estamina}
+    set {agotado::%player's uuid%} to false
+    set {inmovilizado::%player's uuid%} to false
+    set {timer_descanso::%player's uuid%} to 0
+
+# 1. BLOQUEO Y DETECCIÓN DE CAMBIO DE POSICIÓN
+on player move:
+    # Si solo mueve la cámara (yaw/pitch), ignoramos el evento
+    if x-coordinate of player's location is x-coordinate of last event-location:
+        if z-coordinate of player's location is z-coordinate of last event-location:
+            stop
+
+    # Si llegó aquí, es porque cambió de posición X o Z (se movió físicamente)
+    if {inmovilizado::%player's uuid%} is true:
+        cancel event
+        send action bar "&4&lCOLAPSO TOTAL - Debes esperar" to player
+        stop
+
+    # Resetear timer solo si hay movimiento real
+    set {timer_descanso::%player's uuid%} to 0
+
+    if player is sprinting:
+        remove {@gasto_correr} from {estamina::%player's uuid%}
+    else:
+        remove {@gasto_caminar} from {estamina::%player's uuid%}
+
+# 2. BUCLE DE LÓGICA (1 segundo)
+every 1 second:
+    loop all players:
+        set {_u} to loop-player's uuid
+        set {_p} to loop-player
+
+        # A. Control de Niveles
+        if {estamina::%{_u}%} <= 0:
+            set {estamina::%{_u}%} to 0
+            set {inmovilizado::%{_u}%} to true
+            set {agotado::%{_u}%} to true
+            make {_p} stop sprinting
+        else if {estamina::%{_u}%} < 50:
+            set {agotado::%{_u}%} to true
+            if {_p} is sprinting:
+                make {_p} stop sprinting
+
+        # B. Lógica del Delay mejorada
+        # Si el jugador está quieto, sumamos al timer
+        add 1 to {timer_descanso::%{_u}%}
+
+        if {timer_descanso::%{_u}%} >= {@delay_recuperacion}:
+            if {estamina::%{_u}%} < {@max_estamina}:
+                add {@recuperacion} to {estamina::%{_u}%}
+
+        # C. Desbloqueo al llegar al máximo
+        if {estamina::%{_u}%} >= 100:
+            set {estamina::%{_u}%} to 100
+            set {agotado::%{_u}%} to false
+            set {inmovilizado::%{_u}%} to false
+
+        # D. Interfaz Visual
+        set {_color} to "&a"
+        if {agotado::%{_u}%} is true:
+            set {_color} to "&e"
+        if {inmovilizado::%{_u}%} is true:
+            set {_color} to "&c"
+
+        set {_percent} to ({estamina::%{_u}%} / 100) * 10
+        set {_bar} to ""
+        loop 10 times:
+            if loop-number-2 <= {_percent}:
+                set {_bar} to "%{_bar}%%{_color}%■"
+            else:
+                set {_bar} to "%{_bar}%&7■"
+
+        if {inmovilizado::%{_u}%} is true:
+            send action bar "&4&lINMÓVIL &8(&f%{timer_descanso::%{_u}%}%s/15s&8) &c%{estamina::%{_u}%}%" to {_p}
+        else if {agotado::%{_u}%} is true:
+            send action bar "&e&lSIN ALIENTO &7[%{_bar}%&7] &6%{estamina::%{_u}%}%" to {_p}
+        else:
+            send action bar "&fEnergía [%{_bar}%&f] &a%{estamina::%{_u}%}%" to {_p}
