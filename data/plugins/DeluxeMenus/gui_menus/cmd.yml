@@ -86,3 +86,18 @@ items:
     - '&7Click para volver al juego'
     left_click_commands:
     - '[close]'
+
+  glass_border:
+    material: LIGHT_GREEN_STAINED_GLASS_PANE
+    slots:
+    - 0-8
+    - 9
+    - 17
+    - 18
+    - 26
+    - 27
+    - 35
+    - 36
+    - 44
+    - 45-53
+    display_name: " "

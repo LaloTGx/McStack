@@ -1,32 +1,38 @@
 menu_title: '&5Menu de Protección:'
 open_command:
 - mnprot
+open_commands:
+  - '[sound] BLOCK_AMETHYST_BLOCK_BREAK'
 size: 54
 
 items:
 
+  titlemn:
+    material: NETHER_STAR
+    slot: 10
+    display_name: '&d&lMenu de la Proteccion'
+
+  cerrar:
+    material: BARRIER
+    slot: 16
+    display_name: '&c&lCerrar Menú'
+    lore:
+    - '&7Click para volver al juego'
+    left_click_commands:
+    - '[close]'
+
   config:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWU1ZWRmZTkwMTU2Y2U5YjViNmI4MDc5M2RjMmNiZmU4NTBkZGVjODU2Yzk5ZWViZGUzMTc3NWNjZTk1NjA0MSJ9fX0=
-    slot: 10
+    slot: 29
     display_name: '&9Ajustes'
     lore:
     - '&7Click para ver los ajustes de la protección'
     left_click_commands:
     - '[player] cnprot'
 
-  info:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTcxYTIyODVjOTFjNmM3Mjc0NzYwNDgxOWVlNTIyM2E5MGFhNTFlNmU3OWU0ZjlhZjY2MjhlYzhmMGRkN2RmYyJ9fX0=
-    slot: 19
-    display_name: '&dInformación'
-    lore:
-    - '&7Dueño(s): &b%protectionstones_currentregion_owners%'
-    - '&7Ubicación: &b%protectionstones_currentregion_home_location%'
-    - '&7Tipo: &b%protectionstones_currentregion_type%'
-    - '&7Miembro(s): &b%protectionstones_currentregion_members%'
-
   view:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDcwMWViNDFlOTQ5MzhjMmE2OWJkOTc3MDgwYmI4NThlMTUwZWE3MjNhZTBlOWM2ZTdlMjI1OGUyY2E4ZDFhNyJ9fX0=
-    slot: 21
+    slot: 30
     display_name: '&aBordes'
     lore:
     - '&7Click para ver los border durante 30 seg'
@@ -34,16 +40,26 @@ items:
     - '[close]'
     - '[player] ps view'
 
+  info:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTcxYTIyODVjOTFjNmM3Mjc0NzYwNDgxOWVlNTIyM2E5MGFhNTFlNmU3OWU0ZjlhZjY2MjhlYzhmMGRkN2RmYyJ9fX0=
+    slot: 31
+    display_name: '&dInformación'
+    lore:
+    - '&7Dueño(s): &b%protectionstones_currentregion_owners%'
+    - '&7Ubicación: &b%protectionstones_currentregion_home_location%'
+    - '&7Tipo: &b%protectionstones_currentregion_type%'
+    - '&7Miembro(s): &b%protectionstones_currentregion_members%'
+
   member:
     material: head-%player_name%
-    slot: 22
+    slot: 40
     display_name: '&cMiembros'
     lore:
     - '&7/ps info member &cVer los miembros'
 
   protect:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTFiZTRiNWI1OTJmZWUyMWE2NWUwZjkwMzAzOGM1MzMzYmUzODgyMzRhNDM3MzFkNGFkZmU1ZDU3ZDM2NDRlNSJ9fX0=
-    slot: 28
+    slot: 32
     display_name: '&bTienda de Protecciones'
     lore:
     - '&7Click para abrir la tienda'
@@ -52,18 +68,24 @@ items:
 
   commands:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIyODcyMzQyZDJjZjIwNzU0YjllMWJhZTljMDkwMjkxMmRjYWUxMmU2M2I1MjBiNmZlOGJkOTExYjkxMDE4YiJ9fX0=
-    slot: 37
+    slot: 33
     display_name: '&aComandos'
     lore:
     - '&7Click para ver los comandos'
     left_click_commands:
     - '[player] cmd'
 
-  cerrar:
-    material: BARRIER
-    slot: 53
-    display_name: '&c&lCerrar Menú'
-    lore:
-    - '&7Click para volver al juego'
-    left_click_commands:
-    - '[close]'
+  glass_border:
+    material: PURPLE_STAINED_GLASS_PANE
+    slots:
+    - 0-8
+    - 9
+    - 17
+    - 18
+    - 26
+    - 27
+    - 35
+    - 36
+    - 44
+    - 45-53
+    display_name: " "

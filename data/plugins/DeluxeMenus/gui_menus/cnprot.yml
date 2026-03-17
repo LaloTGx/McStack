@@ -1,13 +1,257 @@
 menu_title: '&1Configuracion de Protección:'
 open_command:
 - cnprot
+open_commands:
+  - '[sound] BLOCK_ANVIL_PLACE'
 size: 54
 
 items:
+  backmnprot:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE2Y2FhMWUxZTlkOWFlZjU5Mjc4NzExNDIyNzg3YTAxNzk5M2M1YjI5MjUxOGM5ZjYzMmQ0MTJmNWE2NTkifX19
+    slot: 10
+    display_name: '&c&lRegresar al Menu'
+    lore:
+    - '&7Click para volver al Menu'
+    left_click_commands:
+    - '[player] mnprot'
+
+  titleconf:
+    material: EXPOSED_COPPER_GOLEM_STATUE
+    slot: 13
+    display_name: '&9&lAjustes de la Proteccion'
+
+  cerrar:
+    material: BARRIER
+    slot: 16
+    display_name: '&c&lCerrar Menú'
+    lore:
+    - '&7Click para volver al juego'
+    left_click_commands:
+    - '[close]'
+
+  #placeblock:
+    #material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNlOTlhNmZkMDQ2NGUwNjhjZDY5ZjNmZGRkMDNiYmFiOTA5YWNlNGY5YzNjNmFmYTFmOTQ3ZWNmODVjMjRmYiJ9fX0=
+    #slot: 10
+    #display_name: '&aColocar bloques'
+    #lore:
+    #- '&7Permitir que miembros coloquen bloques'
+    #- '&fEstado: &b%protectionstones_currentregion_flags_block-place%'
+    #- '&8Click izquierdo: &aActivar'
+    #- '&8Click derecho: &cDesactivar'
+    #left_click_commands:
+    #- '[player] ps flag -g members block-place allow'
+    #- '[player] cnprot'
+    #right_click_commands:
+    #- '[player] ps flag -g members block-place deny'
+    #- '[player] cnprot'
+
+  placeblock_owners:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNlOTlhNmZkMDQ2NGUwNjhjZDY5ZjNmZGRkMDNiYmFiOTA5YWNlNGY5YzNjNmFmYTFmOTQ3ZWNmODVjMjRmYiJ9fX0=
+    slot: 28
+    priority: 0
+    display_name: '&aColocar bloques'
+    lore:
+    - '&7Quien puede colocar bloques'
+    - '&fEstado: &bDueños'
+    - '&8Click: Cambiar a miembros'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'block-place-group OWNERS'
+    left_click_commands:
+    - '[player] ps flag -g members block-place allow'
+    - '[player] cnprot'
+
+  placeblock_members:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNlOTlhNmZkMDQ2NGUwNjhjZDY5ZjNmZGRkMDNiYmFiOTA5YWNlNGY5YzNjNmFmYTFmOTQ3ZWNmODVjMjRmYiJ9fX0=
+    slot: 28
+    priority: 1
+    display_name: '&aColocar bloques'
+    lore:
+    - '&7Quien puede colocar bloques'
+    - '&fEstado: &bMiembros'
+    - '&8Click: Cambiar a dueños'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'block-place-group MEMBERS'
+    left_click_commands:
+    - '[player] ps flag -g members block-place null'
+    - '[player] ps flag -g owners block-place allow'
+    - '[player] cnprot'
+
+#  breakblock:
+#    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdiODhmMGVkMDcyMzNjNzk0MDIyZmU0Zjg2OWIwMjYzMjMyNjhmOTJhMzhhZWEzNjUyNjkxYmNjZjU2Nzk0MyJ9fX0=
+#    slot: 29
+#    display_name: '&cRomper bloques'
+#    lore:
+#    - '&7Permitir que miembros rompan bloques'
+#    - '&fEstado: &b%protectionstones_currentregion_flags_block-break%'
+#    - '&8Click izquierdo: &aActivar'
+#    - '&8Click derecho: &cDesactivar'
+#    left_click_commands:
+#    - '[player] ps flag -g members block-break allow'
+#    - '[player] cnprot'
+#    right_click_commands:
+#    - '[player] ps flag -g members block-break deny'
+#    - '[player] cnprot'
+
+  breakblock_owners:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdiODhmMGVkMDcyMzNjNzk0MDIyZmU0Zjg2OWIwMjYzMjMyNjhmOTJhMzhhZWEzNjUyNjkxYmNjZjU2Nzk0MyJ9fX0=
+    slot: 29
+    priority: 0
+    display_name: '&aRomper bloques'
+    lore:
+    - '&7Quien puede romper bloques'
+    - '&fEstado: &bDueños'
+    - '&8Click: Cambiar a miembros'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'block-break-group OWNERS'
+    left_click_commands:
+    - '[player] ps flag -g members block-break allow'
+    - '[player] cnprot'
+
+  breakblock_members:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdiODhmMGVkMDcyMzNjNzk0MDIyZmU0Zjg2OWIwMjYzMjMyNjhmOTJhMzhhZWEzNjUyNjkxYmNjZjU2Nzk0MyJ9fX0=
+    slot: 29
+    priority: 1
+    display_name: '&aRomper bloques'
+    lore:
+    - '&7Quien puede romper bloques'
+    - '&fEstado: &bMiembros'
+    - '&8Click: Cambiar a dueños'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'block-break-group MEMBERS'
+    left_click_commands:
+    - '[player] ps flag -g members block-break null'
+    - '[player] ps flag -g owners block-break allow'
+    - '[player] cnprot'
+
+#  openchest:
+#    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGEyZmRiM2YwYWY4OTViZTE5ODY3ODlhYWMxZjNmMDVkMDAwYjkxMTEyODRlNjAwNTU4NTlkNTNhZjRiYmYyNCJ9fX0=
+#    slot: 37
+#    display_name: '&6Abrir cofres'
+#    lore:
+#    - '&7Permitir abrir cofres'
+#    - '&fEstado: &b%protectionstones_currentregion_flags_chest-access%'
+#    - '&8Click izquierdo: &aActivar'
+#    - '&8Click derecho: &cDesactivar'
+#    left_click_commands:
+#    - '[player] ps flag -g members chest-access allow'
+#    - '[player] cnprot'
+#    right_click_commands:
+#    - '[player] ps flag -g members chest-access deny'
+#    - '[player] cnprot'
+
+  openchest_owners:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGEyZmRiM2YwYWY4OTViZTE5ODY3ODlhYWMxZjNmMDVkMDAwYjkxMTEyODRlNjAwNTU4NTlkNTNhZjRiYmYyNCJ9fX0=
+    slot: 37
+    priority: 0
+    display_name: '&6Acceder a Cofres'
+    lore:
+    - '&7Quien puede abrir cofres'
+    - '&fEstado: &bDueños'
+    - '&8Click: Cambiar a miembros'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'chest-access-group OWNERS'
+    left_click_commands:
+    - '[player] ps flag -g members chest-access allow'
+    - '[player] cnprot'
+
+  openchest_members:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGEyZmRiM2YwYWY4OTViZTE5ODY3ODlhYWMxZjNmMDVkMDAwYjkxMTEyODRlNjAwNTU4NTlkNTNhZjRiYmYyNCJ9fX0=
+    slot: 37
+    priority: 1
+    display_name: '&6Acceder a Cofres'
+    lore:
+    - '&7Quien puede abrir cofres'
+    - '&fEstado: &bMiembros'
+    - '&8Click: Cambiar a dueños'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'chest-access-group MEMBERS'
+    left_click_commands:
+    - '[player] ps flag -g members chest-access null'
+    - '[player] ps flag -g owners chest-access allow'
+    - '[player] cnprot'
+
+#  interaction:
+#    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE4OTc4Y2NiZjU3NmY0NDZlMjFjNTFkM2U4MGZjN2Y4NTY2ZWI3MjY1Y2M0M2M0YWQ3MWNmYjc4YzE2NTI1NyJ9fX0=
+#    slot: 38
+#    display_name: '&eInteracciones'
+#    lore:
+#    - '&7Permitir interactuar dentro de la proteccion'
+#    - '&fEstado: &b%protectionstones_currentregion_flags_use%'
+#    - '&8Click izquierdo: &aActivar'
+#    - '&8Click derecho: &cDesactivar'
+#    left_click_commands:
+#    - '[player] ps flag -g members use allow'
+#    - '[player] cnprot'
+#    right_click_commands:
+#    - '[player] ps flag -g members use deny'
+#    - '[player] cnprot'
+
+  interaction_owners:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE4OTc4Y2NiZjU3NmY0NDZlMjFjNTFkM2U4MGZjN2Y4NTY2ZWI3MjY1Y2M0M2M0YWQ3MWNmYjc4YzE2NTI1NyJ9fX0=
+    slot: 38
+    priority: 0
+    display_name: '&6Acceder a Cofres'
+    lore:
+    - '&7Quien puede interactuar'
+    - '&fEstado: &bDueños'
+    - '&8Click: Cambiar a miembros'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'use-group OWNERS'
+    left_click_commands:
+    - '[player] ps flag -g members use allow'
+    - '[player] cnprot'
+
+  interaction_members:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE4OTc4Y2NiZjU3NmY0NDZlMjFjNTFkM2U4MGZjN2Y4NTY2ZWI3MjY1Y2M0M2M0YWQ3MWNmYjc4YzE2NTI1NyJ9fX0=
+    slot: 38
+    priority: 1
+    display_name: '&6Interactuar con Objetos'
+    lore:
+    - '&7Quien puede interactuar'
+    - '&fEstado: &bMiembros'
+    - '&8Click: Cambiar a dueños'
+    view_requirement:
+      requirements:
+        estado:
+          type: string contains
+          input: '%protectionstones_currentregion_flags%'
+          output: 'use-group MEMBERS'
+    left_click_commands:
+    - '[player] ps flag -g members use null'
+    - '[player] ps flag -g owners use allow'
+    - '[player] cnprot'
 
   pvp:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmEwMmE1MDY1Yjk0MmIxMzY1NjY3OGI5MmZmN2VkMjQ2ZGIwNjNmOTc5N2QyNDU4NDdjZGMzOTVmOTAyMGMzYiJ9fX0=
-    slot: 10
+    slot: 33
     display_name: '&6PVP'
     lore:
     - '&7Permitir combate dentro de la protección'
@@ -21,89 +265,9 @@ items:
     - '[player] ps flag -g all pvp deny'
     - '[player] cnprot'
 
-  placeblock:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNlOTlhNmZkMDQ2NGUwNjhjZDY5ZjNmZGRkMDNiYmFiOTA5YWNlNGY5YzNjNmFmYTFmOTQ3ZWNmODVjMjRmYiJ9fX0=
-    slot: 11
-    display_name: '&aColocar bloques'
-    lore:
-    - '&7Permitir que miembros coloquen bloques'
-    - '&fEstado: &b%protectionstones_currentregion_flags_block-place%'
-    - '&8Click izquierdo: &aActivar'
-    - '&8Click derecho: &cDesactivar'
-    left_click_commands:
-    - '[player] ps flag -g members block-place allow'
-    - '[player] cnprot'
-    right_click_commands:
-    - '[player] ps flag -g members block-place deny'
-    - '[player] cnprot'
-
-  breakblock:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdiODhmMGVkMDcyMzNjNzk0MDIyZmU0Zjg2OWIwMjYzMjMyNjhmOTJhMzhhZWEzNjUyNjkxYmNjZjU2Nzk0MyJ9fX0=
-    slot: 12
-    display_name: '&cRomper bloques'
-    lore:
-    - '&7Permitir que miembros rompan bloques'
-    - '&fEstado: &b%protectionstones_currentregion_flags_block-break%'
-    - '&8Click izquierdo: &aActivar'
-    - '&8Click derecho: &cDesactivar'
-    left_click_commands:
-    - '[player] ps flag -g members block-break allow'
-    - '[player] cnprot'
-    right_click_commands:
-    - '[player] ps flag -g members block-break deny'
-    - '[player] cnprot'
-
-  openchest:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGEyZmRiM2YwYWY4OTViZTE5ODY3ODlhYWMxZjNmMDVkMDAwYjkxMTEyODRlNjAwNTU4NTlkNTNhZjRiYmYyNCJ9fX0=
-    slot: 13
-    display_name: '&6Abrir cofres'
-    lore:
-    - '&7Permitir abrir cofres'
-    - '&fEstado: &b%protectionstones_currentregion_flags_chest-access%'
-    - '&8Click izquierdo: &aActivar'
-    - '&8Click derecho: &cDesactivar'
-    left_click_commands:
-    - '[player] ps flag -g members chest-access allow'
-    - '[player] cnprot'
-    right_click_commands:
-    - '[player] ps flag -g members chest-access deny'
-    - '[player] cnprot'
-
-  opendoor:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE4OTc4Y2NiZjU3NmY0NDZlMjFjNTFkM2U4MGZjN2Y4NTY2ZWI3MjY1Y2M0M2M0YWQ3MWNmYjc4YzE2NTI1NyJ9fX0=
-    slot: 14
-    display_name: '&eInteracciones'
-    lore:
-    - '&7Permitir interactuar dentro de la proteccion'
-    - '&fEstado: &b%protectionstones_currentregion_flags_use%'
-    - '&8Click izquierdo: &aActivar'
-    - '&8Click derecho: &cDesactivar'
-    left_click_commands:
-    - '[player] ps flag -g members use allow'
-    - '[player] cnprot'
-    right_click_commands:
-    - '[player] ps flag -g members use deny'
-    - '[player] cnprot'
-
-  tnt:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJlNDI0NmUxMTJlYmE2MTIxZjQ5ZWE2ZGU2ZDJmMjg4M2Y3MmVlMmIzODFkMzkyMjA5ZGY3YWJlZjIyNjVjNyJ9fX0=
-    slot: 15
-    display_name: '&cExplosiones TNT'
-    lore:
-    - '&7Permitir TNT en la protección'
-    - '&fEstado: &b%protectionstones_currentregion_flags_tnt%'
-    - '&8Click izquierdo: &aActivar'
-    - '&8Click derecho: &cDesactivar'
-    left_click_commands:
-    - '[player] ps flag tnt allow'
-    - '[player] cnprot'
-    right_click_commands:
-    - '[player] ps flag tnt deny'
-    - '[player] cnprot'
-
   enderpearl:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTdlYWI5ZTVjNzZlMTM2MWIxOTgyNjAyYTYxYzYxNjE4ZDNmNTg5YjI3YzhiM2U0NDcyNDAzNjE1NTliOTU4MSJ9fX0=
-    slot: 16
+    slot: 34
     display_name: '&5Ender Pearls'
     lore:
     - '&7Permitir entrar con perlas'
@@ -117,9 +281,25 @@ items:
     - '[player] ps flag -g all enderpearl deny'
     - '[player] cnprot'
 
+  tnt:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJlNDI0NmUxMTJlYmE2MTIxZjQ5ZWE2ZGU2ZDJmMjg4M2Y3MmVlMmIzODFkMzkyMjA5ZGY3YWJlZjIyNjVjNyJ9fX0=
+    slot: 42
+    display_name: '&cExplosiones TNT'
+    lore:
+    - '&7Permitir TNT en la protección'
+    - '&fEstado: &b%protectionstones_currentregion_flags_tnt%'
+    - '&8Click izquierdo: &aActivar'
+    - '&8Click derecho: &cDesactivar'
+    left_click_commands:
+    - '[player] ps flag tnt allow'
+    - '[player] cnprot'
+    right_click_commands:
+    - '[player] ps flag tnt deny'
+    - '[player] cnprot'
+
   mobspawn:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZiNGJmZGRjMTM1Mjk4ZDE5OTg1ZTkwMWNkOWI5ZWVkMTdjYjUyOTQzYTA0MjY2YTVlZmNhYzYyYzkxNmQ5ZiJ9fX0=
-    slot: 22
+    slot: 43
     display_name: '&2Spawn de mobs'
     lore:
     - '&7Permitir aparición de mobs'
@@ -133,20 +313,17 @@ items:
     - '[player] ps flag mob-spawning deny'
     - '[player] cnprot'
 
-  backmnprot:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE2Y2FhMWUxZTlkOWFlZjU5Mjc4NzExNDIyNzg3YTAxNzk5M2M1YjI5MjUxOGM5ZjYzMmQ0MTJmNWE2NTkifX19
-    slot: 45
-    display_name: '&c&lRegresar al Menu'
-    lore:
-    - '&7Click para volver al Menu'
-    left_click_commands:
-    - '[player] mnprot'
-
-  cerrar:
-    material: BARRIER
-    slot: 53
-    display_name: '&c&lCerrar Menú'
-    lore:
-    - '&7Click para volver al juego'
-    left_click_commands:
-    - '[close]'
+  glass_border:
+    material: BLUE_STAINED_GLASS_PANE
+    slots:
+    - 0-8
+    - 9
+    - 17
+    - 18
+    - 26
+    - 27
+    - 35
+    - 36
+    - 44
+    - 45-53
+    display_name: " "
