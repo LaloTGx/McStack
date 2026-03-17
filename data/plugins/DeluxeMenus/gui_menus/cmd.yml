@@ -5,9 +5,25 @@ size: 54
 
 items:
 
+  playerhead:
+    material: head-%player_name%
+    slot: 10
+    display_name: '%player_name%'
+    lore:
+    - '&dLvl. %player_level%'
+
+  protecciones:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTFiZTRiNWI1OTJmZWUyMWE2NWUwZjkwMzAzOGM1MzMzYmUzODgyMzRhNDM3MzFkNGFkZmU1ZDU3ZDM2NDRlNSJ9fX0=
+    slot: 11
+    display_name: '&bTienda de Protecciones'
+    lore:
+    - '&7Click para abrir la tienda'
+    left_click_commands:
+    - '[player] prot'
+
   home:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIzYWM5M2Q1ZTk5OTVkZTg0YWE5NWRlM2M4OWU0MDQyNTYwNjAzNGRkOGQ3NWNmZDcxOTYxNjA5YmQ1MjgxNSJ9fX0=
-    slot: 11
+    slot: 29
     display_name: '&6Lista de casa'
     lore:
     - '&7Click para ver la lista de Hogares creados'
@@ -17,7 +33,7 @@ items:
 
   sethome:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjNkMDJjZGMwNzViYjFjYzVmNmZlM2M3NzExYWU0OTc3ZTM4YjkxMGQ1MGVkNjAyM2RmNzM5MTNlNWU3ZmNmZiJ9fX0=
-    slot: 12
+    slot: 30
     display_name: '&eRegistrar Casa'
     lore:
     - '&7Click para preparar el comando /sethome'
@@ -26,7 +42,7 @@ items:
 
   tpa:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjFkZDRmZTRhNDI5YWJkNjY1ZGZkYjNlMjEzMjFkNmVmYTZhNmI1ZTdiOTU2ZGI5YzVkNTljOWVmYWIyNSJ9fX0=
-    slot: 13
+    slot: 31
     display_name: '&dTeletransporte (TPA)'
     lore:
     - '&7Click para preparar el comando /tpa'
@@ -35,7 +51,7 @@ items:
 
   tpaccept:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGVhYjQxZTNjYjg3NjllYmFkMmE4MjFkNTVjY2I4NWE0YTk0MGRkNWM2ZThiZjczOGIwYjEyMmY4NzkxZSJ9fX0=
-    slot: 14
+    slot: 32
     display_name: '&aAceptar TPA'
     lore:
     - '&7Click para aceptar la última solicitud'
@@ -44,33 +60,16 @@ items:
 
   skill:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTJlYzlhOGE5MGQ5MGM3ODY1MWFmMmY5NjIwMTUxMTFmY2JmMTFhYzg3MzhmNTJiOGUyNGRhODYyYTM4NzFiYSJ9fX0=
-    slot: 15
+    slot: 33
     display_name: '&3Habilidades (Skills)'
     lore:
     - '&7Ver tu progreso de niveles'
     left_click_commands:
     - '[player] skill'
 
-  playerhead:
-    material: head-%player_name%
-    slot: 31
-    display_name: '%player_name%'
-    lore:
-    - '&dLvl. %player_level%'
-
-  protecciones:
-    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTFiZTRiNWI1OTJmZWUyMWE2NWUwZjkwMzAzOGM1MzMzYmUzODgyMzRhNDM3MzFkNGFkZmU1ZDU3ZDM2NDRlNSJ9fX0=
-    slot: 40
-    display_name: '&bTienda de Protecciones'
-    lore:
-    - '&7Click para abrir la tienda'
-    left_click_commands:
-    - '[player] prot'
-
-
   github:
     material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJjYTkxODVkN2E5MGYwN2VhYjM1MTBjYzFhZGJlYmQwNzViY2MyOTU4YWY5MjQ4NTAyMTUwYThjYjQyYTQ2MSJ9fX0=
-    slot: 52
+    slot: 15
     display_name: '&6Repositorio en GitHub'
     lore:
     - '&7Click para obtener el enlace'
@@ -80,7 +79,7 @@ items:
 
   cerrar:
     material: BARRIER
-    slot: 53
+    slot: 16
     display_name: '&c&lCerrar Menú'
     lore:
     - '&7Click para volver al juego'
@@ -88,7 +87,7 @@ items:
     - '[close]'
 
   glass_border:
-    material: LIGHT_GREEN_STAINED_GLASS_PANE
+    material: LIME_STAINED_GLASS_PANE
     slots:
     - 0-8
     - 9
