@@ -43,4 +43,4 @@ Este proyecto no busca ser una guía definitiva, sino más bien un punto de part
 ![menuconf](./screenshots/confimg.png)
 
 * **Muestra del ScoreBoard [TAB]**
-![Tabimg](./screenshots/mtabimg.png)
+![Tabimg](./screenshots/tabimg.png)
