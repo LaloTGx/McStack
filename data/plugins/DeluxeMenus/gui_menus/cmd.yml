@@ -1,6 +1,8 @@
 menu_title: '&a> &2Comandos del Servidor:'
 open_command:
 - cmd
+open_commands:
+  - '[sound] BLOCK_BEACON_POWER_SELECT'
 size: 54
 
 items:

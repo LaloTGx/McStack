@@ -23,21 +23,21 @@ colors:
   - "&r&&ro: &oItalic          &r&&rl: &lBold"
   permission-required: colors
 
-prot:
-  command: /prot
-  register: true
-  type: ICON_MENU
-  iconmenu_title: '&3Tienda de Protecciones'
-  iconmenu_size: 54
-  iconmenu_commands:
-    # Formato: /ps_comprar [Material] [Precio]
-    - '11:YELLOW_GLAZED_TERRACOTTA:0:/ps_comprar YELLOW_GLAZED_TERRACOTTA 50:&a&lProtección 8x8:&eCosto 50;&7Radio de 8x8'
-    - '12:GREEN_GLAZED_TERRACOTTA:0:/ps_comprar GREEN_GLAZED_TERRACOTTA 100:&a&lProtección 16x16:&eCosto 100;&7Radio de 16x16'
-    - '13:LIGHT_BLUE_GLAZED_TERRACOTTA:0:/ps_comprar LIGHT_BLUE_GLAZED_TERRACOTTA 250:&a&lProtección 32x32:&eCosto 250;&7Radio de 32x32'
-    - '14:PURPLE_GLAZED_TERRACOTTA:0:/ps_comprar PURPLE_GLAZED_TERRACOTTA 500:&a&lProtección 64x64:&eCosto 500;&7Radio de 64x64'
-    - '15:BLACK_GLAZED_TERRACOTTA:0:/ps_comprar BLACK_GLAZED_TERRACOTTA 1000:&a&lProtección 128x128:&eCosto 1000;&7Radio de 128x128'
-    - '53:BARRIER:0:%close%:&c&lCerrar Menú:&7Click para salir'
-  permission-required: false
+#prot:
+#  command: /prot
+#  register: true
+#  type: ICON_MENU
+#  iconmenu_title: '&3Tienda de Protecciones'
+#  iconmenu_size: 54
+#  iconmenu_commands:
+#    # Formato: /ps_comprar [Material] [Precio]
+#    - '11:YELLOW_GLAZED_TERRACOTTA:0:/ps_comprar YELLOW_GLAZED_TERRACOTTA 1000:&a&lProtección 8x8:&eCosto 1,000;&7Radio de 8x8'
+#    - '12:GREEN_GLAZED_TERRACOTTA:0:/ps_comprar GREEN_GLAZED_TERRACOTTA 3000:&a&lProtección 16x16:&eCosto 3,000;&7Radio de 16x16'
+#    - '13:LIGHT_BLUE_GLAZED_TERRACOTTA:0:/ps_comprar LIGHT_BLUE_GLAZED_TERRACOTTA 5000:&a&lProtección 32x32:&eCosto 5,000;&7Radio de 32x32'
+#    - '14:PURPLE_GLAZED_TERRACOTTA:0:/ps_comprar PURPLE_GLAZED_TERRACOTTA 15000:&a&lProtección 64x64:&eCosto 15,000;&7Radio de 64x64'
+#    - '15:BLACK_GLAZED_TERRACOTTA:0:/ps_comprar BLACK_GLAZED_TERRACOTTA 100000:&a&lProtección 128x128:&eCosto 100,000;&7Radio de 128x128'
+#    - '53:BARRIER:0:%close%:&c&lCerrar Menú:&7Click para salir'
+#  permission-required: false
 
 ps_comprar:
   command: /ps_comprar

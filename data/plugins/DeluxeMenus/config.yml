@@ -15,3 +15,5 @@ gui_menus:
     file: mnprot.yml
   confprot:
     file: cnprot.yml
+  prot:
+    file: prot.yml

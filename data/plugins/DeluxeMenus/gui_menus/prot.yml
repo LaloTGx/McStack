@@ -1,0 +1,91 @@
+menu_title: '&3Tienda de Protecciones:'
+open_command:
+- prot
+open_commands:
+  - '[sound] BLOCK_BEEHIVE_ENTER'
+size: 54
+
+items:
+
+  titlemn:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTFiZTRiNWI1OTJmZWUyMWE2NWUwZjkwMzAzOGM1MzMzYmUzODgyMzRhNDM3MzFkNGFkZmU1ZDU3ZDM2NDRlNSJ9fX0=
+    slot: 10
+    display_name: '&b&lTienda de Protecciones'
+
+  commands:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIyODcyMzQyZDJjZjIwNzU0YjllMWJhZTljMDkwMjkxMmRjYWUxMmU2M2I1MjBiNmZlOGJkOTExYjkxMDE4YiJ9fX0=
+    slot: 15
+    display_name: '&aComandos'
+    lore:
+    - '&7Click para ver los comandos'
+    left_click_commands:
+    - '[player] cmd'
+
+  cerrar:
+    material: BARRIER
+    slot: 16
+    display_name: '&c&lCerrar Menú'
+    lore:
+    - '&7Click para volver al juego'
+    left_click_commands:
+    - '[close]'
+
+  yellow:
+    material: YELLOW_GLAZED_TERRACOTTA
+    slot: 29
+    display_name: '&6Protección (&e8x8&6)&r'
+    lore:
+    - '&7Costo &f&l$1,000'
+    left_click_commands:
+    - '[player] ps_comprar YELLOW_GLAZED_TERRACOTTA 1000'
+
+  green:
+    material: GREEN_GLAZED_TERRACOTTA
+    slot: 30
+    display_name: '&2Protección (&a16x16&2)&r'
+    lore:
+    - '&7Costo &f&l$3,000'
+    left_click_commands:
+    - '[player] ps_comprar GREEN_GLAZED_TERRACOTTA 3000'
+
+  lightblue:
+    material: LIGHT_BLUE_GLAZED_TERRACOTTA
+    slot: 31
+    display_name: '&3Protección (&b32x32&3)&r'
+    lore:
+    - '&7Costo &f&l$5,000'
+    left_click_commands:
+    - '[player] ps_comprar LIGHT_BLUE_GLAZED_TERRACOTTA 5000'
+
+  purple:
+    material: PURPLE_GLAZED_TERRACOTTA
+    slot: 32
+    display_name: '&5Protección (&d64x64&5)&r'
+    lore:
+    - '&7Costo &f&l$15,000'
+    left_click_commands:
+    - '[player] ps_comprar PURPLE_GLAZED_TERRACOTTA 15000'
+
+  black:
+    material: BLACK_GLAZED_TERRACOTTA
+    slot: 33
+    display_name: '&4Protección (&c128x128&4)&r'
+    lore:
+    - '&7Costo &f&l$100,000'
+    left_click_commands:
+    - '[player] ps_comprar BLACK_GLAZED_TERRACOTTA 100000'
+
+  glass_border:
+    material: BLUE_STAINED_GLASS_PANE
+    slots:
+    - 0-8
+    - 9
+    - 17
+    - 18
+    - 26
+    - 27
+    - 35
+    - 36
+    - 44
+    - 45-53
+    display_name: " "
