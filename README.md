@@ -16,8 +16,8 @@ Estos son los plugins que actualmente utilizo en el servidor:
 | Floodgate         | TheNewEconomy      | DeluxeMenus       | InvSee++         | WorldEdit        |
 | Geyser            | UJobs              | TAB               | MyCommand        | WorldGuard       |
 | Spark             | HuskHomes          | PlaceholderAPI    | Skript           | ProtectionStones |
-| Vault             |                    | LPC               | SkBee            |                  |
-| Updater           |                    |                   |                  |                  |
+| Vault             | Quickshop-Hikari   | LPC               | SkBee            |                  |
+| Updater           | ImageFrame         | MiniMOTD          | ProtocolLib      |                  |
 
 ## Sobre este repositorio
 **Importante:**
